@@ -2,7 +2,7 @@
 const App = () => {
   return (
     <div>
-      <h1> app component</h1>
+      <h1> app component upadating</h1>
     </div>
   );
 };
