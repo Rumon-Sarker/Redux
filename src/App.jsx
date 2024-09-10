@@ -2,6 +2,7 @@ import { useState } from "react";
 import BookForm from "./components/BookForm";
 import BookList from "./components/BookList";
 import PostView from "./components/postView";
+import ProdutListView from "./features/products/ProdutListView";
 
 const App = () => {
 
@@ -20,8 +21,9 @@ const App = () => {
       <h1> app component upadating</h1>
       <BookForm bookEdit={bookEdit} onCancel={handaleChange} />
       <BookList handaleEdit={handaleEdit} />
-
       <PostView />
+
+      <ProdutListView />
     </div>
   );
 };
