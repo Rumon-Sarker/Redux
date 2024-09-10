@@ -9,7 +9,7 @@ const PostView = () => {
 
     useEffect(() => {
         dispatch(fatchPost())
-    }, []);
+    }, [dispatch]);
 
 
     console.log("Post data", posts);
