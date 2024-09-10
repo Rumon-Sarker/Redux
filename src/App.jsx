@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BookForm from "./components/BookForm";
 import BookList from "./components/BookList";
+import PostView from "./components/postView";
 
 const App = () => {
 
@@ -19,6 +20,8 @@ const App = () => {
       <h1> app component upadating</h1>
       <BookForm bookEdit={bookEdit} onCancel={handaleChange} />
       <BookList handaleEdit={handaleEdit} />
+
+      <PostView />
     </div>
   );
 };
