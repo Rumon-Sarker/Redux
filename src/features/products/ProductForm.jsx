@@ -1,11 +1,12 @@
 import { nanoid } from "@reduxjs/toolkit";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { createProduct } from "./productSlice";
+import { createProduct, updateProduct } from "./productSlice";
 
-const ProductForm = () => {
+const ProductForm = ({ updateProductData = {}, isEdit = false }) => {
+    // console.log("form update data", updateProduct)
 
-
+    console.log(isEdit);
     const dispatch = useDispatch();
     const [product, setProduct] = useState({
         id: "",
@@ -21,9 +22,22 @@ const ProductForm = () => {
         })
     }
 
+    useEffect(() => {
+        if (updateProductData) {
+            setProduct(updateProductData)
+        }
+    }, [updateProductData])
+
     const handaleSubmit = (event) => {
         event.preventDefault();
-        dispatch(createProduct({ ...product, id: nanoid() }))
+
+        if (isEdit) {
+            dispatch(updateProduct({ id: product.id, product }))
+        }
+        else {
+            dispatch(createProduct({ ...product, id: nanoid() }))
+
+        }
 
         // form reset code 
         setProduct({
@@ -34,6 +48,10 @@ const ProductForm = () => {
             category: ""
         })
     }
+
+
+    console.log("efect data", product);
+
     return (
         <form onSubmit={handaleSubmit}>
             <div>
@@ -53,7 +71,7 @@ const ProductForm = () => {
                 <input type="text" name="category" onChange={handaleChange} value={product.category} placeholder="category name" required />
             </div>
 
-            <button type="submit">Add Product</button>
+            <button type="submit">{isEdit ? "Update Product" : "Add Product"}</button>
 
         </form>
     );

@@ -1,17 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct, fetchProducts } from "./productSlice";
+import { deleteProduct, fetchProducts, updateProduct } from "./productSlice";
 
-const ProdutListView = () => {
+const ProdutListView = ({ onHandaleUpdate }) => {
     const dispatch = useDispatch();
 
     const { products, isLoading, error } = useSelector((state) => state.productR);
-    console.log(products)
 
 
     useEffect(() => {
         dispatch(fetchProducts());
-    }, [dispatch])
+    }, [dispatch]);
+
+    const handaleUpdateProduct = (product) => {
+        onHandaleUpdate(product)
+    }
     return (
         <div>
             <h1>Hello Pruducts</h1>
@@ -21,7 +24,6 @@ const ProdutListView = () => {
                 <section>
                     {
                         products?.map(product => {
-                            console.log("map product", product)
                             return (
                                 <article style={{ border: "3px solid gray", padding: "12px", margin: "5px", }} key={product.id}>
                                     <h2>{product?.title}</h2>
@@ -30,6 +32,8 @@ const ProdutListView = () => {
                                     <p>$ {product?.price}</p>
 
                                     <button onClick={() => dispatch(deleteProduct(product.id))}>Delete</button>
+
+                                    <button onClick={() => handaleUpdateProduct(product)}>Update</button>
                                 </article>
                             )
                         })
