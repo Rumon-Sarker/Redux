@@ -3,6 +3,7 @@ import BookForm from "./components/BookForm";
 import BookList from "./components/BookList";
 import PostView from "./components/postView";
 import ProdutListView from "./features/products/ProdutListView";
+import ProductForm from "./features/products/ProductForm";
 
 const App = () => {
 
@@ -21,9 +22,10 @@ const App = () => {
       <h1> app component upadating</h1>
       <BookForm bookEdit={bookEdit} onCancel={handaleChange} />
       <BookList handaleEdit={handaleEdit} />
-      <PostView />
+      {/* <PostView /> */}
 
       <ProdutListView />
+      <ProductForm />
     </div>
   );
 };

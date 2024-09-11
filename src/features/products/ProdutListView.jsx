@@ -6,7 +6,8 @@ const ProdutListView = () => {
     const dispatch = useDispatch();
 
     const { products, isLoading, error } = useSelector((state) => state.productR);
-    console.log("Products data", products)
+    console.log(products)
+
 
     useEffect(() => {
         dispatch(fetchProducts());
@@ -19,13 +20,14 @@ const ProdutListView = () => {
             {products && products.length > 0 &&
                 <section>
                     {
-                        products.map(product => {
+                        products?.map(product => {
+                            console.log("map product", product)
                             return (
                                 <article style={{ border: "3px solid gray", padding: "12px", margin: "5px", }} key={product.id}>
-                                    <h2>{product.title}</h2>
-                                    <p>{product.description}</p>
-                                    <h4>{product.category}</h4>
-                                    <p>$ {product.price}</p>
+                                    <h2>{product?.title}</h2>
+                                    <p>{product?.description}</p>
+                                    <h4>{product?.category}</h4>
+                                    <p>$ {product?.price}</p>
 
                                     <button onClick={() => dispatch(deleteProduct(product.id))}>Delete</button>
                                 </article>
