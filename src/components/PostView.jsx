@@ -19,9 +19,9 @@ const PostView = () => {
             <h2>{isLoading}</h2>
             <h1>{error}</h1>
             <article>
-                {/* TODO this is post deatils is unconmments in after product components work. */}
 
-                {/* {posts && posts?.map(post => {
+
+                {posts && posts?.map(post => {
                     return (
                         <section style={{ border: "3px solid gray", padding: "12px", margin: "5px", }} key={post.id}>
                             <h2>{post.id}</h2>
@@ -30,7 +30,7 @@ const PostView = () => {
 
                         </section>
                     )
-                })} */}
+                })}
             </article>
         </div>
     );

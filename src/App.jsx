@@ -32,9 +32,7 @@ const App = () => {
       <h1> app component upadating</h1>
       <BookForm bookEdit={bookEdit} onCancel={handaleChange} />
       <BookList handaleEdit={handaleEdit} />
-      {/* TODO after work PostView components is unComments  */}
-
-      {/* <PostView /> */}
+      <PostView />
 
       <ProdutListView onHandaleUpdate={handaleUpdateProduct} />
       <ProductForm updateProductData={updateProduct} isEdit={isEdit} />

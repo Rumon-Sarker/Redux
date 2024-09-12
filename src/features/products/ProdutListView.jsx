@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProduct, fetchProducts, updateProduct } from "./productSlice";
+import { deleteProduct, fetchProducts } from "./productSlice";
 
 const ProdutListView = ({ onHandaleUpdate }) => {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const ProdutListView = ({ onHandaleUpdate }) => {
     }
     return (
         <div>
-            <h1>Hello Pruducts</h1>
+            <h1>Pruducts Components  </h1>
             {isLoading && <p>Loading...</p>}
             {error && <h3>{error}</h3>}
             {products && products.length > 0 &&
